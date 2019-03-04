@@ -4,13 +4,19 @@ import pro.sstd.utils.calendar.structure.DateInfo;
 import pro.sstd.utils.calendar.structure.DayType;
 
 import java.time.LocalDate;
-import java.util.TreeMap;
+import java.util.Map;
 
+/**
+ * Интерфейс для производственного календаря
+ */
 public interface SstdCalendarDaysInterface {
 
     void init();
+
     void add(String date, DayType type);
+
     void add(String date, DayType type, String title);
-    TreeMap<LocalDate, DateInfo> getDays();
+
+    Map<LocalDate, DateInfo> getDays();
 
 }

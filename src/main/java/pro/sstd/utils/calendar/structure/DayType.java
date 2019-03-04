@@ -1,16 +1,22 @@
 package pro.sstd.utils.calendar.structure;
 
 /**
- * Day types enum
+ * Типы дат
  */
 public enum DayType {
 
-    // Not working day
+    /**
+     * Нерабочий или праздницный день.
+     */
     HOLIDAY,
 
-    // Shortened day
+    /**
+     * Сокращенный рабочий день.
+     */
     SHORTDAY,
 
-    // Work day
+    /**
+     * Рабочий день.
+     */
     WORKDAY
 }

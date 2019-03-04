@@ -2,6 +2,9 @@ package pro.sstd.utils.calendar.days;
 
 import pro.sstd.utils.calendar.structure.DayType;
 
+/**
+ * Производственный календарь для РФ 2013-2019гг.
+ */
 public class RU_Days extends DefaultDays {
 
     static private String NEW_YEAR = "Новогодние каникулы (в ред. Федерального закона от 23.04.2012 № 35-ФЗ)";

@@ -2,27 +2,31 @@ package pro.sstd.utils.calendar.structure;
 
 import java.time.LocalDate;
 
+/**
+ * Информация о дате
+ */
 public class DateInfo {
 
     /**
-     * Date
+     * Дата
      */
     private LocalDate date;
 
     /**
-     * Enum {@link DayType}
+     * Enum {@link DayType} - тип даты
+     * Выходной\праздничный, сокращенный рабочий день, рабочий день
      */
     private DayType type;
 
     /**
-     * Optional. Title of holiday
+     * Наименование праздничного дня
      */
     private String title;
 
     /**
-     * Constructor.
-     * @param date LocalDate
-     * @param type Enum {@link DayType}
+     * Конструктор
+     * @param date LocalDate - дата
+     * @param type Enum {@link DayType} - тип
      */
     public DateInfo(LocalDate date, DayType type) {
         this.date = date;
@@ -30,10 +34,10 @@ public class DateInfo {
     }
 
     /**
-     * Constructor
-     * @param date LocalDate
-     * @param type Enum {@link DayType}
-     * @param title String
+     * Конструктор
+     * @param date LocalDate - дата
+     * @param type Enum {@link DayType} - тип
+     * @param title String - наимеование праздничного дня
      */
     public DateInfo(LocalDate date, DayType type, String title) {
         this.date = date;
