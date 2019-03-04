@@ -123,7 +123,7 @@ public class SstdCalendar {
     }
 
     /**
-     * Возвращает дату через dayInterval РАБОЧИХ дней от date
+     * Возвращает ближайший рабочий день через dayInterval РАБОЧИХ дней от date
      *
      * @param date LocalDate - дата начала отсчета
      * @param workDayInterval int - интервал в РАБОЧИХ днях
@@ -134,17 +134,6 @@ public class SstdCalendar {
             date = getWorkDateAfterInterval(date, 1);
         }
         return date;
-    }
-
-    /**
-     * Возвращает ближайший рабочий день через dayInterval РАБОЧИХ дней от date
-     *
-     * @param date            LocalDate - дата начала отсчета
-     * @param workDayInterval int - интервал в РАБОЧИХ днях
-     * @return LocalDate
-     */
-    public LocalDate getWorkDateAfterWorkDaysInterval(LocalDate date, int workDayInterval) {
-        return getWorkDateAfterInterval(getDateAfterWorkDaysInterval(date, workDayInterval), 0);
     }
 
     /**
