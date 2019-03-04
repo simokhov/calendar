@@ -33,6 +33,7 @@
         <java.version>1.8</java.version>
         <github.global.server>github</github.global.server>
         <github.site-plugin-version>0.12</github.site-plugin-version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <distributionManagement>
@@ -51,6 +52,7 @@
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                 </configuration>
+                <version>3.8.0</version>
             </plugin>
             <plugin>
                 <artifactId>maven-deploy-plugin</artifactId>
@@ -69,7 +71,7 @@
                     <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
                     <branch>refs/heads/mvn-repo</branch>
                     <includes><include>**/*</include></includes>
-                    <repositoryName>calendar</repositoryName>
+                    <repositoryName>maven</repositoryName>
                     <repositoryOwner>simokhov</repositoryOwner>
                 </configuration>
                 <executions>
