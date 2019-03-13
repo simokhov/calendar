@@ -109,6 +109,19 @@ public class SstdCalendar {
     }
 
     /**
+     * Возвращает дату через dayInterval календарных дней от date
+     *
+     * @param date            LocalDate - дата начала отсчета
+     * @param dayInterval     int - интервал в календарных днях
+     * @param includeFirstDay boolean - включить в расчет текущий день
+     * @return LocalDate
+     */
+    public LocalDate getDateAfterInterval(LocalDate date, int dayInterval, boolean includeFirstDay) {
+        if (includeFirstDay && dayInterval > 0) dayInterval--;
+        return date.plusDays(dayInterval);
+    }
+
+    /**
      * Возвращает ближайший рабочей день через dayInterval календарных дней от date
      *
      * @param date        LocalDate - дата начала отсчета
@@ -116,6 +129,22 @@ public class SstdCalendar {
      * @return LocalDate
      */
     public LocalDate getWorkDateAfterInterval(LocalDate date, int dayInterval) {
+        LocalDate result = date.plusDays(dayInterval);
+        while (isHoliday(result))
+            result = result.plusDays(1);
+        return result;
+    }
+
+    /**
+     * Возвращает ближайший рабочей день через dayInterval календарных дней от date
+     *
+     * @param date            LocalDate - дата начала отсчета
+     * @param dayInterval     int - интервал в РАБОЧИХ днях
+     * @param includeFirstDay boolean - включить в расчет текущий день
+     * @return LocalDate
+     */
+    public LocalDate getWorkDateAfterInterval(LocalDate date, int dayInterval, boolean includeFirstDay) {
+        if (includeFirstDay && dayInterval > 0) dayInterval--;
         LocalDate result = date.plusDays(dayInterval);
         while (isHoliday(result))
             result = result.plusDays(1);
@@ -136,6 +165,21 @@ public class SstdCalendar {
         return date;
     }
 
+    /**
+     * Возвращает ближайший рабочий день через dayInterval РАБОЧИХ дней от date
+     *
+     * @param date            LocalDate - дата начала отсчета
+     * @param workDayInterval int - интервал в РАБОЧИХ днях
+     * @param includeFirstDay boolean - включить в расчет текущий день
+     * @return LocalDate
+     */
+    public LocalDate getDateAfterWorkDaysInterval(LocalDate date, int workDayInterval, boolean includeFirstDay) {
+        if (includeFirstDay && workDayInterval > 0) workDayInterval--;
+        for (int i = 0; i < workDayInterval; i++) {
+            date = getWorkDateAfterInterval(date, 1);
+        }
+        return date;
+    }
     /**
      * Возвращает информацию об указанной дате (дата, тип, наименование праздника)
      *
